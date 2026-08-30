@@ -3,32 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
     <title>Home</title>
   </head>
   <body>
-    <header>
-      <div>
-        <p>Garage Manager</p>
-      </div>
+    <div class="app">
+      <header>
+        <div>
+          <p class="app-name">Garage Manager</p>
+        </div>
 
-      <div>
-        <input type="search" id="search" />
-        <button>+ Add</button>
-      </div>
-    </header>
+        <div>
+          <input type="search" id="search" />
+          <button class="action-btn">+ Add</button>
+        </div>
+      </header>
 
-    <aside>
-      <nav>
-        <ul>
-          <li><a href="./index.html">Dashboard</a></li>
-          <li><a href="./pages/vehicles.html">Vehicles</a></li>
-          <li><a href="./pages/tools.html">Tools</a></li>
-          <li><a href="./pages/maintenance.html">Maintenance</a></li>
-          <li><a href="./pages/projects.html">Projects</a></li>
-        </ul>
-      </nav>
-    </aside>
+      <aside class="sidebar">
+        <nav>
+          <ul>
+            <li><a href="./index.html">Dashboard</a></li>
+            <li><a href="./html/vehicles.html">Vehicles</a></li>
+            <li><a href="./html/tools.html">Tools</a></li>
+            <li><a href="./html/maintenance.html">Maintenance</a></li>
+            <li><a href="./html/projects.html">Projects</a></li>
+          </ul>
+        </nav>
+      </aside>
 
-    <main></main>
+      <main>
+        <h2>Welcome back</h2>
+        <p>Here what needs your attention.</p>
+        <div class="card">
+          <h3>Maintenance</h3>
+          <p>2 Due Soon</p>
+        </div>
+
+        <div class="overview">
+          <div class="card">
+            <h3>projects</h3>
+            <p>2 active</p>
+          </div>
+
+          <div class="card">
+            <h3>Expenses</h3>
+            <p>$0 YTD</p>
+          </div>
+        </div>
+
+        <h2>Upcoming Maintenance</h2>
+        <div class="upcoming">
+          <h3>Silverado</h3>
+          <div class="card card-flex">
+            <p>Oil Change</p>
+            <p>800 mi left</p>
+          </div>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
