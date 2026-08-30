@@ -30,34 +30,73 @@
 
           <button class="action-btn" id="openDialog">Add Vehicle</button>
         </header>
+        <div id="vehicleContent"></div>
       </main>
       <dialog id="vehicleDialog">
-        <form novalidate>
-          <div>
+        <form id="vehicleForm">
+          <div class="column">
             <label for="type">Type:</label>
             <select id="type" required>
-              <option value="truck">Truck</option>
-              <option value="car"></option>
-              <option value="suv">SUV</option>
-              <option value="van">Vans</option>
-              <option value="motorcycle">Motorcycle</option>
-              <option value="other">Other</option>
+              <option value="">Select an Option</option>
+
+              <optgroup>
+                <option value="Truck">Truck</option>
+                <option value="Car">Car</option>
+                <option value="SUV">SUV</option>
+                <option value="van">Vans</option>
+                <option value="Motorcycle">Motorcycle</option>
+                <option value="Other">Other</option>
+              </optgroup>
             </select>
           </div>
 
-          <div>
+          <div class="column">
             <label for="make">Make:</label>
-            <input type="text" id="make" required />
+            <input type="text" id="make" required placeholder="Ford" />
           </div>
 
-          <div>
+          <div class="column">
             <label for="model">Model:</label>
-            <input type="text" id="model" required />
+            <input type="text" id="model" required placeholder="Mustang" />
           </div>
 
-          <div>
+          <div class="column">
             <label for="year">Year:</label>
-            <input type="text" id="year" required />
+            <input type="number" id="year" required placeholder="1969" />
+          </div>
+
+          <div class="column">
+            <label for="trim">Trim:</label>
+            <input type="text" id="trim" required placeholder="Shelby GT500" />
+          </div>
+
+          <div class="column">
+            <label for="mileage">Mileage:</label>
+            <input type="number" id="mileage" required placeholder="184,884" />
+          </div>
+
+          <div class="column">
+            <label for="nickname">Nickname:</label>
+            <input
+              type="text"
+              id="nickname"
+              required
+              placeholder="White Lightning"
+            />
+          </div>
+
+          <div class="column">
+            <label for="notes">Notes:</label>
+            <textarea id="notes"></textarea>
+          </div>
+
+          <div class="action">
+            <button type="button" class="action-btn" id="submitDialog">
+              Add Vehicle
+            </button>
+            <button type="button" class="black-btn" id="closeDialog">
+              Close
+            </button>
           </div>
         </form>
       </dialog>

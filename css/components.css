@@ -1,6 +1,5 @@
 .app-name {
   padding: 0.75rem 1rem;
-
   font-size: 2rem;
 }
 
@@ -12,14 +11,28 @@ header > div > input {
   padding: 0.5rem;
   font-size: 1rem;
 }
-
+.action {
+  text-align: end;
+}
 .action-btn {
   padding: 0.75rem 1rem;
   font-size: 1rem;
+  font-weight: 700;
   border: none;
   cursor: pointer;
   border-radius: 20px;
   background-color: #8e0505;
+  color: #cfcbcb;
+}
+
+.black-btn {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #000000;
   color: #cfcbcb;
 }
 
@@ -58,4 +71,56 @@ header > div > input {
   background-color: #000000;
   padding: 0.75rem;
   border-bottom: 1px solid #484747;
+}
+
+dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+
+  width: calc(100% - 2rem);
+  max-width: 600px;
+
+  max-height: calc(100% - 2rem);
+
+  padding: 1rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+#vehicleForm select {
+  font-size: 1rem;
+  padding: 0.5rem 0.25rem;
+  outline: none;
+}
+
+#vehicleForm select:focus {
+  outline: 1px solid #a51d1d;
+}
+
+#vehicleForm input {
+  font-size: 1rem;
+  padding: 0.5rem 0.25rem;
+  outline: none;
+}
+
+#vehicleForm input:focus {
+  outline: 1px solid #a51d1d;
+}
+
+.card {
+  background-color: #000000;
+  padding: 1rem 1.5rem;
+  margin: 1.2rem;
+
+  border: 2px solid #484747;
+  border-radius: 12px;
 }
