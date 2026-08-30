@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/main.css" />
+    <script type="module" src="../js/index.js"></script>
     <title>Home</title>
   </head>
   <body>
@@ -24,8 +25,42 @@
       </aside>
 
       <main>
-        <button class="action-btn">Add Vehicle</button>
+        <header class="page-header">
+          <h1>Vehicles</h1>
+
+          <button class="action-btn" id="openDialog">Add Vehicle</button>
+        </header>
       </main>
+      <dialog id="vehicleDialog">
+        <form novalidate>
+          <div>
+            <label for="type">Type:</label>
+            <select id="type" required>
+              <option value="truck">Truck</option>
+              <option value="car"></option>
+              <option value="suv">SUV</option>
+              <option value="van">Vans</option>
+              <option value="motorcycle">Motorcycle</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="make">Make:</label>
+            <input type="text" id="make" required />
+          </div>
+
+          <div>
+            <label for="model">Model:</label>
+            <input type="text" id="model" required />
+          </div>
+
+          <div>
+            <label for="year">Year:</label>
+            <input type="text" id="year" required />
+          </div>
+        </form>
+      </dialog>
     </div>
   </body>
 </html>

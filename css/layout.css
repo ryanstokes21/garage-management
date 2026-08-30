@@ -13,3 +13,8 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+}
