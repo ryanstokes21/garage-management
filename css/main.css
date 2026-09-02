@@ -1,5 +1,7 @@
-@import 'components.css';
-@import 'layout.css';
+@import './pages/dashboard.css';
+@import './pages/vehicle.css';
+@import './components.css';
+@import './layout.css';
 
 * {
   padding: 0;

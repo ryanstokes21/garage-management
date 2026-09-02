@@ -21,4 +21,5 @@
 
 #vehicleContent {
   display: flex;
+  width: 100%;
 }

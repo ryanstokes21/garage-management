@@ -25,7 +25,7 @@ header > div > input {
   color: #cfcbcb;
 }
 
-.black-btn {
+.close-btn {
   padding: 0.75rem 1rem;
   font-size: 1rem;
   font-weight: 700;
@@ -34,6 +34,23 @@ header > div > input {
   border-radius: 20px;
   background-color: #000000;
   color: #cfcbcb;
+}
+
+.delete-btn {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  background-color: #3f3f3f;
+  color: #cfcbcb;
+}
+
+.delete-btn:hover {
+  background-color: #2a0d0d;
+  border-color: #ef4444;
+  color: #ef4444;
 }
 
 .action-btn:hover {
@@ -114,13 +131,4 @@ body:has(dialog[open]) {
 
 #vehicleForm input:focus {
   outline: 1px solid #a51d1d;
-}
-
-.card {
-  background-color: #000000;
-  padding: 1rem 1.5rem;
-  margin: 1.2rem;
-
-  border: 2px solid #484747;
-  border-radius: 12px;
 }
