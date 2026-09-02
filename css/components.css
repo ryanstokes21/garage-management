@@ -132,3 +132,7 @@ body:has(dialog[open]) {
 #vehicleForm input:focus {
   outline: 1px solid #a51d1d;
 }
+
+.hidden {
+  display: none;
+}
