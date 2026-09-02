@@ -1,4 +1,6 @@
-const vehicles = [];
+import { loadVehicles, saveVehicles } from './storage.js';
+
+const vehicles = loadVehicles();
 
 class vehicle {
   constructor(type, make, model, year, trim, mileage, nickname, notes) {
@@ -34,10 +36,10 @@ export function addVehicleToList(
     nickname,
     notes,
   );
-  console.log('newVehicle', newVehicle);
 
   vehicles.push(newVehicle);
-  console.log('vehicles', vehicles);
+
+  saveVehicles(vehicles);
 }
 
 export function renderVehicleCard(content) {
@@ -55,24 +57,53 @@ export function renderVehicleCard(content) {
     vehicleNickname.classList.add('vehicle-nickname');
     vehicleNickname.textContent = vehicle.nickname;
 
-    const vehicleString = document.createElement('p');
-    vehicleString.classList.add('vehicle');
-    vehicleString.textContent = `${vehicle.year} ${vehicle.make} ${vehicle.model} ${vehicle.trim}`;
+    const vehicleYearMake = document.createElement('p');
+    vehicleYearMake.textContent = `${vehicle.year} ${vehicle.make}`;
+
+    const vehicleModelTrim = document.createElement('p');
+    vehicleModelTrim.textContent = `${vehicle.model} ${vehicle.trim}`;
 
     const vehicleMileage = document.createElement('p');
     vehicleMileage.classList.add('vehicle-mileage');
-    vehicleMileage.textContent = vehicle.mileage;
+    vehicleMileage.textContent = `${vehicle.mileage} miles`;
+
+    const actionContainer = document.createElement('div');
+    actionContainer.classList.add('action-container');
 
     const detailsBtn = document.createElement('button');
     detailsBtn.classList.add('action-btn');
-    detailsBtn.textContent = 'View Vehicle Details';
+    detailsBtn.textContent = 'View';
 
     const deleteBtn = document.createElement('button');
-    deleteBtn.classList.add('black-btn');
-    deleteBtn.textContent = 'Delete Vehicle';
+    deleteBtn.classList.add('delete-btn');
+    deleteBtn.textContent = 'Delete';
 
-    card.append(vehicleType, vehicleNickname, vehicleString, vehicleMileage);
+    actionContainer.append(detailsBtn, deleteBtn);
+
+    card.append(
+      vehicleType,
+      vehicleNickname,
+      vehicleYearMake,
+      vehicleModelTrim,
+      vehicleMileage,
+      actionContainer,
+    );
 
     content.append(card);
+
+    deleteBtn.addEventListener('click', () => {
+      deleteVehicle(vehicle.id);
+      renderVehicleCard(content);
+    });
   }
+}
+
+function deleteVehicle(id) {
+  const index = vehicles.findIndex((vehicle) => vehicle.id === id);
+
+  if (index === -1) return;
+
+  vehicles.splice(index, 1);
+
+  saveVehicles(vehicles);
 }

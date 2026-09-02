@@ -1,6 +1,11 @@
 import { addVehicleToList, renderVehicleCard } from './vehicle.js';
 
 const vehicleContent = document.getElementById('vehicleContent');
+
+if (vehicleContent) {
+  renderVehicleCard(vehicleContent);
+}
+
 const openDialog = document.getElementById('openDialog');
 const submitDialog = document.getElementById('submitDialog');
 const closeDialog = document.getElementById('closeDialog');
