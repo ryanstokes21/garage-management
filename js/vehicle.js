@@ -2,6 +2,11 @@ import { loadVehicles, saveVehicles } from './storage.js';
 
 const vehicles = loadVehicles();
 
+const vehicleTypeDetails = document.getElementById('vehicleType');
+const vehicleNicknameDetails = document.getElementById('vehicleNickname');
+const vehicleDetails = document.getElementById('vehicle');
+const vehicleMileageDetails = document.getElementById('vehicleMilage');
+
 class vehicle {
   constructor(type, make, model, year, trim, mileage, nickname, notes) {
     this.id = crypto.randomUUID();
@@ -72,6 +77,7 @@ export function renderVehicleCard(content) {
 
     const detailsBtn = document.createElement('button');
     detailsBtn.classList.add('action-btn');
+    detailsBtn.setAttribute('data-id', vehicle.id);
     detailsBtn.textContent = 'View';
 
     const deleteBtn = document.createElement('button');
@@ -91,6 +97,19 @@ export function renderVehicleCard(content) {
 
     content.append(card);
 
+    detailsBtn.addEventListener('click', (e) => {
+      const id = e.target.dataset.id;
+      console.log(vehicle.id === id);
+
+      if (id) {
+        vehicleTypeDetails.textContent = vehicle.type;
+        vehicleNicknameDetails.textContent = vehicle.nickname;
+        vehicleDetails.textContent = `${vehicle.year} ${vehicle.make} ${vehicle.model} ${vehicle.trim}`;
+        vehicleMileageDetails.textContent = vehicle.mileage;
+      }
+      toggleElements();
+    });
+
     deleteBtn.addEventListener('click', () => {
       deleteVehicle(vehicle.id);
       renderVehicleCard(content);
@@ -107,3 +126,20 @@ function deleteVehicle(id) {
 
   saveVehicles(vehicles);
 }
+
+function toggleElements(id) {
+  const vehicleContent = document.getElementById('vehicleContent');
+  const vehicleDetails = document.getElementById('vehicleDetails');
+
+  if (vehicleDetails.classList.contains('hidden')) {
+    vehicleContent.classList.add('hidden');
+    vehicleDetails.classList.remove('hidden');
+  } else {
+    vehicleDetails.classList.add('hidden');
+    vehicleContent.classList.remove('hidden');
+  }
+}
+
+const closeBtn = document.getElementById('closeDetails');
+
+if (closeBtn) closeBtn.addEventListener('click', toggleElements);

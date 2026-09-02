@@ -30,7 +30,29 @@
 
           <button class="action-btn" id="openDialog">Add Vehicle</button>
         </header>
-        <div id="vehicleContent"></div>
+        <section id="vehicleContent" class="vehicle-content"></section>
+        <section id="vehicleDetails" class="hidden">
+          <h2>Vehicle Details</h2>
+          <div class="vehicle-info">
+            <p id="vehicleType">Vehicle Type:</p>
+            <p id="vehicleNickname">Vehicle Nickname:</p>
+            <p id="vehicle">Vehicle Year make and Model:</p>
+            <p id="vehicleMilage">Vehicle milage</p>
+          </div>
+          <h2>Maintenance History</h2>
+          <div class="maintenance-history">
+            <h3 id="maintenanceTitle">Maintenance Title</h3>
+            <p id="maintenanceNotes">maintenance notes</p>
+          </div>
+          <h2>Purchase History</h2>
+          <div class="purchase-history">
+            <h3 id="purchasedItem">Purchased Item</h3>
+            <p id="price"></p>
+            <p id="Warranty">Warranty? yes or no</p>
+            <p id="purchaseNotes">purchase notes</p>
+          </div>
+          <button id="closeDetails" class="delete-btn">Close</button>
+        </section>
       </main>
       <dialog id="vehicleDialog">
         <form id="vehicleForm">
@@ -94,7 +116,7 @@
             <button type="button" class="action-btn" id="submitDialog">
               Add Vehicle
             </button>
-            <button type="button" class="action-btn" id="closeDialog">
+            <button type="button" class="delete-btn" id="closeDialog">
               Close
             </button>
           </div>
