@@ -31,27 +31,80 @@
           <button class="action-btn" id="openDialog">Add Vehicle</button>
         </header>
         <section id="vehicleContent" class="vehicle-content"></section>
-        <section id="vehicleDetails" class="hidden">
-          <h2>Vehicle Details</h2>
-          <div class="vehicle-info">
-            <p id="vehicleType"></p>
-            <p id="vehicleNickname"></p>
-            <p id="vehicle"></p>
-            <p id="vehicleMilage"></p>
+        <section id="vehicleDetails" class="vehicle-details hidden">
+          <div class="details-header">
+            <div>
+              <p class="section-label">Vehicle Details</p>
+              <h2 id="vehicleNickname">Vehicle Nickname</h2>
+            </div>
+
+            <button id="closeDetails" class="action-btn" type="button">
+              Close
+            </button>
           </div>
-          <h2>Maintenance History</h2>
-          <div class="maintenance-history">
-            <h3 id="maintenanceTitle">Maintenance Title</h3>
-            <p id="maintenanceNotes">maintenance notes</p>
+
+          <div class="vehicle-info details-card">
+            <div class="info-group">
+              <span class="info-label">Type</span>
+              <p id="vehicleType">Car</p>
+            </div>
+
+            <div class="info-group">
+              <span class="info-label">Vehicle</span>
+              <p id="vehicle">2022 Ford Mustang GT</p>
+            </div>
+
+            <div class="info-group">
+              <span class="info-label">Mileage</span>
+              <p id="vehicleMilage">24,500 miles</p>
+            </div>
           </div>
-          <h2>Purchase History</h2>
-          <div class="purchase-history">
-            <h3 id="purchasedItem">Purchased Item</h3>
-            <p id="price"></p>
-            <p id="Warranty">Warranty? yes or no</p>
-            <p id="purchaseNotes">purchase notes</p>
+
+          <div class="details-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">Service Records</p>
+                <h2>Maintenance History</h2>
+              </div>
+            </div>
+
+            <div class="maintenance-history history-card">
+              <div class="history-card-header">
+                <h3 id="maintenanceTitle">Oil Change</h3>
+              </div>
+
+              <p id="maintenanceNotes" class="history-notes">
+                Oil and filter changed. Tires inspected and fluids topped off.
+              </p>
+            </div>
           </div>
-          <button id="closeDetails" class="delete-btn">Close</button>
+
+          <div class="details-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">Parts & Expenses</p>
+                <h2>Purchase History</h2>
+              </div>
+            </div>
+
+            <div class="purchase-history history-card">
+              <div class="history-card-header">
+                <h3 id="purchasedItem">Brake Pads</h3>
+                <p id="price" class="purchase-price">$89.99</p>
+              </div>
+
+              <div class="purchase-details">
+                <div class="info-group">
+                  <span class="info-label">Warranty</span>
+                  <p id="Warranty">Yes</p>
+                </div>
+              </div>
+
+              <p id="purchaseNotes" class="history-notes">
+                Front ceramic brake pads purchased for upcoming brake service.
+              </p>
+            </div>
+          </div>
         </section>
       </main>
       <dialog id="vehicleDialog">
