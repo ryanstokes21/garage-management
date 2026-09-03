@@ -62,11 +62,11 @@ export function renderVehicleCard(content) {
     vehicleNickname.classList.add('vehicle-nickname');
     vehicleNickname.textContent = vehicle.nickname;
 
-    const vehicleYearMake = document.createElement('p');
-    vehicleYearMake.textContent = `${vehicle.year} ${vehicle.make}`;
+    const vehicleYearMakeModel = document.createElement('p');
+    vehicleYearMakeModel.textContent = `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
 
-    const vehicleModelTrim = document.createElement('p');
-    vehicleModelTrim.textContent = `${vehicle.model} ${vehicle.trim}`;
+    const vehicleTrim = document.createElement('p');
+    vehicleTrim.textContent = vehicle.trim;
 
     const vehicleMileage = document.createElement('p');
     vehicleMileage.classList.add('vehicle-mileage');
@@ -89,8 +89,8 @@ export function renderVehicleCard(content) {
     card.append(
       vehicleType,
       vehicleNickname,
-      vehicleYearMake,
-      vehicleModelTrim,
+      vehicleYearMakeModel,
+      vehicleTrim,
       vehicleMileage,
       actionContainer,
     );
