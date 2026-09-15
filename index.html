@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script type="module" src="./js/index.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="app-header">
+        <p class="app-name">Garage Manager</p>
+        <button id="add-vehicle-btn" class="primary-btn btn">
+          Add Vehicle
+        </button>
+      </header>
+
+      <div id="content">
+        <section>
+          <header class="section-header">
+            <h1>Vehicle View</h1>
+          </header>
+        </section>
+      </div>
+
+      <dialog id="vehicle-dialog">
+        <form id="vehicle-form">
+          <header class="form-header">
+            <h2>Add Vehicle</h2>
+            <p>Add your vehicle to start tracking your Maintenance!</p>
+          </header>
+
+          <div class="info-group">
+            <label for="year">Year:</label>
+            <input type="number" id="year" required />
+          </div>
+
+          <div class="info-group">
+            <label for="make">Make:</label>
+            <input type="text" id="make" required />
+          </div>
+
+          <div class="info-group">
+            <label for="model">Model:</label>
+            <input type="text" id="model" required />
+          </div>
+
+          <div class="info-group">
+            <label for="trim">Trim</label>
+            <input type="text" id="trim" required />
+          </div>
+
+          <div class="info-group">
+            <label for="mileage">Mileage:</label>
+            <input type="number" id="mileage" required />
+          </div>
+
+          <div class="form-actions">
+            <button id="submit-vehicle-form-btn" class="primary-btn btn">
+              Add Vehicle
+            </button>
+
+            <button id="close-vehicle-form-btn" class="secondary-btn btn">
+              Close
+            </button>
+          </div>
+        </form>
+      </dialog>
+
+      <template id="vehicle-card-template">
+        <article class="card">
+          <header class="card-header">
+            <p class="label">Vehicle:</p>
+            <h2 class="vehicl-name"></h2>
+            <p class="vehicle-trim"></p>
+          </header>
+          <div class="vehicle-info">
+            <div>
+              <p class="label">Current Mileage</p>
+              <p class="current-mileage"></p>
+            </div>
+
+            <div>
+              <p class="label">Next Service</p>
+              <p class="next-service"></p>
+              <p class="service-due"></p>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="secondary-btn view-vehicle-btn">View</button>
+
+            <button class="primary-btn add-maintenance-btn">
+              Add Maintenance
+            </button>
+          </div>
+        </article>
+      </template>
+    </div>
+  </body>
+</html>
