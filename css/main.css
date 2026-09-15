@@ -1,0 +1,40 @@
+@import 'layout.css';
+@import 'components.css';
+
+:root {
+  /* Base */
+  --color-bg: #181818;
+  --color-surface: #232323;
+  --color-surface-light: #2d2d2d;
+
+  /* Text */
+  --color-text: #f5f5f5;
+  --color-text-muted: #a3a3a3;
+
+  /* Accent */
+  --color-primary: #f97316;
+  --color-primary-hover: #ea580c;
+
+  /* Status */
+  --color-success: #22c55e;
+  --color-warning: #eab308;
+  --color-danger: #dc2626;
+
+  /* Borders */
+  --color-border: #3a3a3a;
+
+  /* transitions */
+  --transition-fast: 150ms ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: Arial, sans-serif;
+}
