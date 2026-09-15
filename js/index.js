@@ -1,3 +1,3 @@
-import { openVehicleDialog } from './vehicle.js';
+import { initVehicles } from './vehicle.js';
 
-openVehicleDialog();
+initVehicles();
