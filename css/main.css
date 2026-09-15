@@ -14,6 +14,8 @@
   /* Accent */
   --color-primary: #f97316;
   --color-primary-hover: #ea580c;
+  --color-secondary: #3a3a3a;
+  --color-secondary-hover: #4a4a4a;
 
   /* Status */
   --color-success: #22c55e;
