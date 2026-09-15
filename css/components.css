@@ -4,6 +4,13 @@
   color: var(--color-text);
 }
 
+.page-content {
+  width: min(1100px, 92%);
+  min-height: calc(100vh - 80px);
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
 .btn {
   color: var(--color-text);
 
