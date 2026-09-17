@@ -35,7 +35,18 @@ function closeVehicleDialog() {
   vehicleDialog.close();
 }
 
-function submitVehicleForm() {}
+function submitVehicleForm() {
+  const year = document.getElementById('year').value;
+  const make = document.getElementById('make').value;
+  const model = document.getElementById('model').value;
+  const trim = document.getElementById('trim').value;
+  const mileage = document.getElementById('mileage').value;
+
+  const newVehicle = new Vehicle(year, make, model, trim, mileage);
+
+  vehicleForm.reset();
+  vehicleDialog.close();
+}
 
 function capitalizeWords(str) {
   return str
