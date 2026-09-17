@@ -12,6 +12,8 @@ class Vehicle {
   }
 }
 
+const vehicles = [];
+
 export function initVehicles() {
   document
     .getElementById('add-vehicle-btn')
@@ -44,6 +46,7 @@ function submitVehicleForm() {
 
   const newVehicle = new Vehicle(year, make, model, trim, mileage);
 
+  vehicles.push(newVehicle);
   vehicleForm.reset();
   vehicleDialog.close();
 }
