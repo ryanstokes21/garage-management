@@ -13,8 +13,11 @@ class Vehicle {
 }
 
 const vehicles = [];
+console.log(vehicles);
 
 export function initVehicles() {
+  renderVehicles();
+
   document
     .getElementById('add-vehicle-btn')
     .addEventListener('click', openVehicleDialog);
@@ -26,6 +29,35 @@ export function initVehicles() {
   document
     .getElementById('submit-vehicle-form-btn')
     .addEventListener('click', submitVehicleForm);
+}
+
+function renderVehicles() {
+  const vehicleContainer = document.getElementById('vehicle-container');
+  const vehicleTemplate = document.getElementById('vehicle-card-template');
+  const emptyState = document.getElementById('vehicle-empty-state');
+
+  vehicleContainer.replaceChildren();
+
+  if (vehicles.length === 0) {
+    emptyState.classList.remove('hidden');
+    return;
+  }
+
+  emptyState.classList.add('hidden');
+
+  vehicles.forEach((vehicle) => {
+    const card = vehicleTemplate.content.firstElementChild.cloneNode(true);
+
+    card.querySelector('.vehicle-name').textContent =
+      `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
+
+    card.querySelector('.vehicle-trim').textContent = vehicle.trim;
+
+    card.querySelector('.current-mileage').textContent =
+      `${vehicle.mileage.toLocaleString()} miles`;
+
+    vehicleContainer.append(card);
+  });
 }
 
 function openVehicleDialog() {
@@ -49,6 +81,7 @@ function submitVehicleForm() {
   vehicles.push(newVehicle);
   vehicleForm.reset();
   vehicleDialog.close();
+  renderVehicles();
 }
 
 function capitalizeWords(str) {
