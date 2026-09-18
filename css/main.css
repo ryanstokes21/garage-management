@@ -1,6 +1,7 @@
 @import 'layout.css';
 @import 'components.css';
 @import 'form.css';
+
 :root {
   /* Base */
   --color-bg: #181818;
@@ -23,7 +24,7 @@
   --color-danger: #dc2626;
 
   /* Borders */
-  --color-border: #3a3a3a;
+  --color-border: #555555;
 
   /* transitions */
   --transition-fast: 150ms ease;
