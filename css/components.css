@@ -41,3 +41,27 @@
 .secondary-btn:hover {
   background-color: var(--color-secondary-hover);
 }
+
+.section-header {
+  margin-bottom: var(--space-lg);
+}
+
+.section-header p {
+  color: var(--color-text-muted);
+}
+
+.empty-state {
+  padding: var(--space-2xl);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.empty-state p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.hidden {
+  display: none;
+}
