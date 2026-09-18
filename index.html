@@ -20,7 +20,15 @@
         <section>
           <header class="section-header">
             <h1>Vehicle View</h1>
+            <p>View, Create, Maintain you vehicles here.</p>
           </header>
+
+          <div id="vehicle-container"></div>
+
+          <div id="vehicle-empty-state" class="empty-state">
+            <h2>No Vehicles Yet</h2>
+            <p>Add your first vehicle to start tracking maintenance.</p>
+          </div>
         </section>
       </div>
 
@@ -80,7 +88,7 @@
         <article class="card">
           <header class="card-header">
             <p class="label">Vehicle:</p>
-            <h2 class="vehicl-name"></h2>
+            <h2 class="vehicle-name"></h2>
             <p class="vehicle-trim"></p>
           </header>
           <div class="vehicle-info">
@@ -88,19 +96,11 @@
               <p class="label">Current Mileage</p>
               <p class="current-mileage"></p>
             </div>
-
-            <div>
-              <p class="label">Next Service</p>
-              <p class="next-service"></p>
-              <p class="service-due"></p>
-            </div>
           </div>
           <div class="card-actions">
-            <button class="secondary-btn view-vehicle-btn">View</button>
+            <button class="secondary-btn btn">View</button>
 
-            <button class="primary-btn add-maintenance-btn">
-              Add Maintenance
-            </button>
+            <button class="primary-btn btn">Add Maintenance</button>
           </div>
         </article>
       </template>
