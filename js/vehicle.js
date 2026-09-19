@@ -1,3 +1,5 @@
+import { openMaintenanceDialog } from './maintenance.js';
+
 const vehicleDialog = document.getElementById('vehicle-dialog');
 const vehicleForm = document.getElementById('vehicle-form');
 
@@ -13,7 +15,6 @@ class Vehicle {
 }
 
 const vehicles = [];
-console.log(vehicles);
 
 export function initVehicles() {
   renderVehicles();
@@ -55,6 +56,12 @@ function renderVehicles() {
 
     card.querySelector('.current-mileage').textContent =
       `${vehicle.mileage.toLocaleString()} miles`;
+
+    const addMaintenanceBtn = card.querySelector('.add-maintenance-btn');
+
+    addMaintenanceBtn.addEventListener('click', () => {
+      openMaintenanceDialog(vehicle.id);
+    });
 
     vehicleContainer.append(card);
   });
