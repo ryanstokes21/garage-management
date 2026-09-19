@@ -17,7 +17,7 @@
       </header>
 
       <div id="content" class="page-content">
-        <section>
+        <section id="vehicles-section">
           <header class="section-header">
             <h1>Your Vehicles</h1>
             <p>View, create, and maintain your vehicles here.</p>
@@ -29,6 +29,24 @@
             <h2>No Vehicles Yet</h2>
             <p>Add your first vehicle to start tracking maintenance.</p>
           </div>
+        </section>
+
+        <section id="vehicle-details-section" class="hidden">
+          <header class="section-header">
+            <div>
+              <h1>Vehicle Details</h1>
+              <p>View maintenance history and edit your vehicle</p>
+            </div>
+            <button id="back-to-vehicles-btn" class="secondary-btn btn">
+              Back
+            </button>
+          </header>
+          <div class="vehicle-info">
+            <h1 id="selected-vehicle"></h1>
+            <p id="selected-vehicle-trim"></p>
+            <p id="current-mileage"></p>
+          </div>
+          <div id="maintenance-log"></div>
         </section>
       </div>
 
