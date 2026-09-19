@@ -36,7 +36,8 @@ dialog::backdrop {
   margin: var(--space-md) 0;
 }
 
-.info-group input {
+.info-group input,
+textarea {
   height: 40px;
   padding: 0 var(--space-sm);
 
@@ -60,4 +61,10 @@ dialog::backdrop {
   justify-content: end;
   gap: var(--space-sm);
   margin-top: var(--space-xl);
+}
+
+.info-group textarea {
+  height: 250px;
+  resize: none;
+  padding: var(--space-sm);
 }
