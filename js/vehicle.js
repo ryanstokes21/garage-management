@@ -30,6 +30,10 @@ export function initVehicles() {
   document
     .getElementById('submit-vehicle-form-btn')
     .addEventListener('click', submitVehicleForm);
+
+  document
+    .getElementById('back-to-vehicles-btn')
+    .addEventListener('click', switchView);
 }
 
 function renderVehicles() {
@@ -63,8 +67,40 @@ function renderVehicles() {
       openMaintenanceDialog(vehicle.id);
     });
 
+    const viewVehicleDetailsBtn = card.querySelector('.view-btn');
+
+    viewVehicleDetailsBtn.addEventListener('click', () => {
+      switchView();
+      viewVehicleDetails(vehicle.id);
+    });
+
     vehicleContainer.append(card);
   });
+}
+
+function switchView() {
+  const vehiclesTab = document.getElementById('vehicles-section');
+  const detailsTab = document.getElementById('vehicle-details-section');
+
+  if (vehiclesTab.classList.contains('hidden')) {
+    vehiclesTab.classList.remove('hidden');
+    detailsTab.classList.add('hidden');
+  } else {
+    vehiclesTab.classList.add('hidden');
+    detailsTab.classList.remove('hidden');
+  }
+}
+
+function viewVehicleDetails(vehicleId) {
+  const vehicle = vehicles.find((vehicle) => vehicle.id === vehicleId);
+
+  if (!vehicle) return;
+
+  document.getElementById('selected-vehicle').textContent =
+    `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
+  document.getElementById('selected-vehicle-trim').textContent = vehicle.trim;
+  document.getElementById('current-mileage').textContent =
+    `${vehicle.mileage.toLocaleString()} miles`;
 }
 
 function openVehicleDialog() {
