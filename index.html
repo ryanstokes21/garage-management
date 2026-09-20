@@ -122,18 +122,18 @@
           </div>
 
           <div class="info-group">
-            <label for="mileage">Mileage:</label>
-            <input type="number" id="mileage" required />
+            <label for="maintenance-mileage">Mileage:</label>
+            <input type="number" id="maintenance-mileage" required />
           </div>
 
           <div class="info-group">
             <label for="performed">Performed By:</label>
-            <input type="text" id="perfromed" />
+            <input type="text" id="performed" />
           </div>
 
           <div class="info-group">
             <label for="next-service-date">Next Service Date:</label>
-            <input type="number" id="next-service-date" required />
+            <input type="date" id="next-service-date" required />
           </div>
 
           <div class="info-group">
@@ -143,7 +143,7 @@
 
           <div class="info-group">
             <label for="maintenance-notes">Notes:</label>
-            <textarea id="maintenance-ntoes"></textarea>
+            <textarea id="maintenance-notes"></textarea>
           </div>
 
           <div class="form-actions">
@@ -185,6 +185,44 @@
             <button class="primary-btn btn add-maintenance-btn">
               Add Maintenance
             </button>
+          </div>
+        </article>
+      </template>
+
+      <template id="maintenance-card-template">
+        <article class="maintenance-card">
+          <header class="maintenance-card-header">
+            <div>
+              <p class="label">Service:</p>
+              <h3 class="maintenance-service"></h3>
+            </div>
+
+            <p class="maintenance-date"></p>
+          </header>
+
+          <div class="maintenance-info">
+            <div class="maintenance-info-group">
+              <p class="label">Mileage</p>
+              <p class="maintenance-mileage"></p>
+            </div>
+
+            <div class="maintenance-info-group">
+              <p class="label">Performed By</p>
+              <p class="maintenance-performed-by"></p>
+            </div>
+
+            <div class="maintenance-info-group">
+              <p class="label">Next Service</p>
+              <p class="maintenance-next-service"></p>
+            </div>
+          </div>
+
+          <p class="maintenance-notes"></p>
+
+          <div class="maintenance-card-actions">
+            <button class="secondary-btn edit-maintenance-btn">Edit</button>
+
+            <button class="danger-btn delete-maintenance-btn">Delete</button>
           </div>
         </article>
       </template>
