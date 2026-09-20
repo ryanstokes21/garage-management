@@ -40,6 +40,47 @@ export function initMaintenance() {
     .addEventListener('click', submitMaintenanceForm);
 }
 
+export function renderMaintenance(vehicleId) {
+  const maintenanceContainer = document.getElementById('maintenance-container');
+  const maintenanceTemplate = document.getElementById(
+    'maintenance-card-template',
+  );
+  const emptyState = document.getElementById('maintenance-empty-state');
+
+  maintenanceContainer.replaceChildren();
+
+  const vehicleMaintenance = maintenanceRecord.filter(
+    (record) => record.vehicleId === vehicleId,
+  );
+
+  if (vehicleMaintenance.length === 0) {
+    emptyState.classList.remove('hidden');
+    return;
+  }
+
+  emptyState.classList.add('hidden');
+
+  vehicleMaintenance.forEach((record) => {
+    const card = maintenanceTemplate.content.firstElementChild.cloneNode(true);
+
+    card.querySelector('.maintenance-service').textContent = record.service;
+
+    card.querySelector('.maintenance-date').textContent = record.date;
+
+    card.querySelector('.maintenance-mileage').textContent = record.mileage;
+
+    card.querySelector('.maintenance-performed-by').textContent =
+      record.performedBy;
+
+    card.querySelector('.maintenance-next-service').textContent =
+      `${record.nextServiceMileage} or ${record.nextServiceDate}`;
+
+    card.querySelector('.maintenance-notes').textContent = record.notes;
+
+    maintenanceContainer.append(card);
+  });
+}
+
 export function openMaintenanceDialog(vehicleId) {
   selectedVehicleId = vehicleId;
   maintenanceDialog.showModal();
@@ -61,7 +102,7 @@ function submitMaintenanceForm() {
   const nextServiceMileage = document.getElementById(
     'next-service-mileage',
   ).value;
-  const maintenanceNotes = document.getElementById('maintenance-notes').value;
+  const notes = document.getElementById('maintenance-notes').value;
 
   const newMaintenance = new Maintenance({
     vehicleId: selectedVehicleId,
@@ -71,12 +112,13 @@ function submitMaintenanceForm() {
     performedBy,
     nextServiceDate,
     nextServiceMileage,
-    maintenanceNotes,
+    notes,
   });
 
   maintenanceRecord.push(newMaintenance);
   maintenanceForm.reset();
   maintenanceDialog.close();
+  renderMaintenance(selectedVehicleId);
 
   selectedVehicleId = null;
 }

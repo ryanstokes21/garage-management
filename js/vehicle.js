@@ -1,4 +1,4 @@
-import { openMaintenanceDialog } from './maintenance.js';
+import { openMaintenanceDialog, renderMaintenance } from './maintenance.js';
 
 const vehicleDialog = document.getElementById('vehicle-dialog');
 const vehicleForm = document.getElementById('vehicle-form');
@@ -72,6 +72,7 @@ function renderVehicles() {
     viewVehicleDetailsBtn.addEventListener('click', () => {
       switchView();
       viewVehicleDetails(vehicle.id);
+      renderMaintenance(vehicle.id);
     });
 
     vehicleContainer.append(card);
