@@ -38,9 +38,17 @@ export function initMaintenance() {
   document
     .getElementById('submit-maintenance-form-btn')
     .addEventListener('click', submitMaintenanceForm);
+
+  document
+    .getElementById('empty-add-maintenance-btn')
+    .addEventListener('click', () => {
+      openMaintenanceDialog(selectedVehicleId);
+    });
 }
 
 export function renderMaintenance(vehicleId) {
+  selectedVehicleId = vehicleId;
+
   const maintenanceContainer = document.getElementById('maintenance-container');
   const maintenanceTemplate = document.getElementById(
     'maintenance-card-template',
@@ -72,8 +80,11 @@ export function renderMaintenance(vehicleId) {
     card.querySelector('.maintenance-performed-by').textContent =
       record.performedBy;
 
-    card.querySelector('.maintenance-next-service').textContent =
-      `${record.nextServiceMileage} or ${record.nextServiceDate}`;
+    card.querySelector('.maintenance-next-service-date').textContent =
+      record.nextServiceDate;
+
+    card.querySelector('.maintenance-next-service-mileage').textContent =
+      record.nextServiceMileage;
 
     card.querySelector('.maintenance-notes').textContent = record.notes;
 
