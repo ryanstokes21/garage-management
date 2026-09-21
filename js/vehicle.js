@@ -4,6 +4,8 @@ import { loadVehicles, saveVehicles } from './storage.js';
 const vehicleDialog = document.getElementById('vehicle-dialog');
 const vehicleForm = document.getElementById('vehicle-form');
 
+let selectedVehicleId = null;
+
 class Vehicle {
   constructor(year, make, model, trim, mileage) {
     this.id = crypto.randomUUID();
@@ -35,6 +37,10 @@ export function initVehicles() {
   document
     .getElementById('back-to-vehicles-btn')
     .addEventListener('click', switchView);
+
+  document
+    .getElementById('delete-vehicle-btn')
+    .addEventListener('click', deleteVehicle);
 }
 
 function renderVehicles() {
@@ -98,6 +104,8 @@ function viewVehicleDetails(vehicleId) {
 
   if (!vehicle) return;
 
+  selectedVehicleId = vehicle.id;
+
   document.getElementById('selected-vehicle').textContent =
     `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
   document.getElementById('selected-vehicle-trim').textContent = vehicle.trim;
@@ -137,4 +145,26 @@ function capitalizeWords(str) {
     .split(' ')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
+}
+
+function deleteVehicle() {
+  if (!selectedVehicleId) return;
+
+  const confirmed = confirm('Are you sure you want to delete this vehicle?');
+
+  if (!confirmed) return;
+
+  const vehicleIndex = vehicles.findIndex(
+    (vehicle) => vehicle.id === selectedVehicleId,
+  );
+
+  if (vehicleIndex === -1) return;
+
+  vehicles.splice(vehicleIndex, 1);
+  saveVehicles(vehicles);
+
+  selectedVehicleId = null;
+
+  renderVehicles();
+  switchView();
 }
