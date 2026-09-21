@@ -19,8 +19,10 @@
       <div id="content" class="page-content">
         <section id="vehicles-section">
           <header class="section-header">
-            <h1>Your Vehicles</h1>
-            <p>View, create, and maintain your vehicles here.</p>
+            <div>
+              <h1>Your Vehicles</h1>
+              <p>View, create, and maintain your vehicles here.</p>
+            </div>
           </header>
 
           <div id="vehicle-container"></div>
@@ -35,16 +37,28 @@
           <header class="section-header">
             <div>
               <h1>Vehicle Details</h1>
-              <p>View maintenance history and edit your vehicle</p>
+              <p>View maintenance history and manage your vehicle.</p>
             </div>
+
             <button id="back-to-vehicles-btn" class="secondary-btn btn">
               Back
             </button>
           </header>
-          <div class="vehicle-info">
-            <h1 id="selected-vehicle"></h1>
-            <p id="selected-vehicle-trim"></p>
-            <p id="current-mileage"></p>
+          <div class="vehicle-details-card">
+            <div class="vehicle-details-header">
+              <div>
+                <p class="label">Vehicle</p>
+                <h2 id="selected-vehicle"></h2>
+                <p id="selected-vehicle-trim" class="vehicle-trim"></p>
+              </div>
+            </div>
+
+            <div class="vehicle-details-info">
+              <div class="detail-group">
+                <p class="label">Current Mileage</p>
+                <p id="current-mileage" class="detail-value"></p>
+              </div>
+            </div>
           </div>
           <div id="maintenance-container"></div>
           <div id="maintenance-empty-state">
