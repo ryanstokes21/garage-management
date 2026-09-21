@@ -1,9 +1,11 @@
+import { loadMaintenance, saveMaintenance } from './storage.js';
+
 const maintenanceDialog = document.getElementById('maintenance-dialog');
 const maintenanceForm = document.getElementById('maintenance-form');
 
 let selectedVehicleId = null;
 
-const maintenanceRecord = [];
+const maintenanceRecord = loadMaintenance();
 
 class Maintenance {
   constructor({
@@ -127,6 +129,9 @@ function submitMaintenanceForm() {
   });
 
   maintenanceRecord.push(newMaintenance);
+
+  saveMaintenance(maintenanceRecord);
+
   maintenanceForm.reset();
   maintenanceDialog.close();
   renderMaintenance(selectedVehicleId);

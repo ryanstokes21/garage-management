@@ -1,4 +1,5 @@
 import { openMaintenanceDialog, renderMaintenance } from './maintenance.js';
+import { loadVehicles, saveVehicles } from './storage.js';
 
 const vehicleDialog = document.getElementById('vehicle-dialog');
 const vehicleForm = document.getElementById('vehicle-form');
@@ -14,7 +15,7 @@ class Vehicle {
   }
 }
 
-const vehicles = [];
+const vehicles = loadVehicles();
 
 export function initVehicles() {
   renderVehicles();
@@ -123,6 +124,8 @@ function submitVehicleForm() {
   const newVehicle = new Vehicle(year, make, model, trim, mileage);
 
   vehicles.push(newVehicle);
+
+  saveVehicles(vehicles);
   vehicleForm.reset();
   vehicleDialog.close();
   renderVehicles();
