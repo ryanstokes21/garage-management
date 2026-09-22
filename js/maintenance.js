@@ -1,5 +1,5 @@
 import { loadMaintenance, saveMaintenance, saveVehicles } from './storage.js';
-import { renderVehicles, vehicles } from './vehicle.js';
+import { renderVehicles, vehicles, viewVehicleDetails } from './vehicle.js';
 
 const maintenanceDialog = document.getElementById('maintenance-dialog');
 const maintenanceForm = document.getElementById('maintenance-form');
@@ -44,6 +44,12 @@ export function initMaintenance() {
 
   document
     .getElementById('empty-add-maintenance-btn')
+    .addEventListener('click', () => {
+      openMaintenanceDialog(selectedVehicleId);
+    });
+
+  document
+    .getElementById('add-maintenance-btn-view-tab')
     .addEventListener('click', () => {
       openMaintenanceDialog(selectedVehicleId);
     });
@@ -118,6 +124,10 @@ function submitMaintenanceForm() {
   ).value;
   const notes = document.getElementById('maintenance-notes').value;
 
+  if (!validateMaintenanceForm(service, date, mileage)) {
+    return;
+  }
+
   const newMaintenance = new Maintenance({
     vehicleId: selectedVehicleId,
     service,
@@ -154,5 +164,31 @@ function updateVehicleMileage(vehicleId, maintenanceMileage) {
 
     saveVehicles(vehicles);
     renderVehicles();
+    document.getElementById('current-mileage').textContent =
+      `${vehicle.mileage.toLocaleString()} miles`;
   }
+}
+
+function validateMaintenanceForm(service, date, mileage) {
+  if (!service.trim() || !date || mileage === '') {
+    alert('Please fill out the required maintenance fields.');
+    return false;
+  }
+
+  if (Number(mileage) < 0) {
+    alert('Please enter a valid mileage.');
+    return false;
+  }
+
+  return true;
+}
+
+export function deleteVehicleMaintenance(vehicleId) {
+  for (let i = maintenanceRecord.length - 1; i >= 0; i--) {
+    if (maintenanceRecord[i].vehicleId === vehicleId) {
+      maintenanceRecord.splice(i, 1);
+    }
+  }
+
+  saveMaintenance(maintenanceRecord);
 }

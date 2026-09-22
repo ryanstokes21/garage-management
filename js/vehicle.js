@@ -1,4 +1,8 @@
-import { openMaintenanceDialog, renderMaintenance } from './maintenance.js';
+import {
+  deleteVehicleMaintenance,
+  openMaintenanceDialog,
+  renderMaintenance,
+} from './maintenance.js';
 import { loadVehicles, saveVehicles } from './storage.js';
 
 const vehicleDialog = document.getElementById('vehicle-dialog');
@@ -99,7 +103,7 @@ function switchView() {
   }
 }
 
-function viewVehicleDetails(vehicleId) {
+export function viewVehicleDetails(vehicleId) {
   const vehicle = vehicles.find((vehicle) => vehicle.id === vehicleId);
 
   if (!vehicle) return;
@@ -128,6 +132,10 @@ function submitVehicleForm() {
   const model = document.getElementById('model').value;
   const trim = document.getElementById('trim').value;
   const mileage = document.getElementById('mileage').value;
+
+  if (!validateVehicleForm(year, make, model, trim, mileage)) {
+    return;
+  }
 
   const newVehicle = new Vehicle(year, make, model, trim, mileage);
 
@@ -160,6 +168,8 @@ function deleteVehicle() {
 
   if (vehicleIndex === -1) return;
 
+  deleteVehicleMaintenance(selectedVehicleId);
+
   vehicles.splice(vehicleIndex, 1);
   saveVehicles(vehicles);
 
@@ -167,4 +177,24 @@ function deleteVehicle() {
 
   renderVehicles();
   switchView();
+}
+
+function validateVehicleForm(year, make, model, trim, mileage) {
+  if (
+    !year ||
+    !make.trim() ||
+    !model.trim() ||
+    !trim.trim() ||
+    mileage === ''
+  ) {
+    alert('Please fill out all vehicle fields.');
+    return false;
+  }
+
+  if (Number(year) <= 0 || Number(mileage) < 0) {
+    alert('Please enter valid year and mileage values.');
+    return false;
+  }
+
+  return true;
 }

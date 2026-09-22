@@ -41,6 +41,14 @@
   background-color: var(--color-secondary-hover);
 }
 
+.danger-btn {
+  background-color: var(--color-danger);
+}
+
+.danger-btn:hover {
+  background-color: var(--color-danger-hover);
+}
+
 .section-header {
   margin-bottom: var(--space-lg);
   display: flex;
@@ -346,4 +354,9 @@
 .maintenance-next-service {
   color: var(--color-primary) !important;
   font-weight: 700 !important;
+}
+
+.required-label::after {
+  content: ' *';
+  color: var(--color-danger);
 }

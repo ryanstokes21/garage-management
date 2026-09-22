@@ -41,11 +41,14 @@
             </div>
 
             <div>
+              <button id="add-maintenance-btn-view-tab" class="primary-btn btn">
+                Add Maintenance
+              </button>
+              <button id="delete-vehicle-btn" class="danger-btn btn">
+                Delete
+              </button>
               <button id="back-to-vehicles-btn" class="secondary-btn btn">
                 Back
-              </button>
-              <button id="delete-vehicle-btn" class="primary-btn btn">
-                Delete
               </button>
             </div>
           </header>
@@ -65,7 +68,7 @@
               </div>
             </div>
           </div>
-          <div id="maintenance-empty-state">
+          <div>
             <div id="maintenance-empty-state" class="empty-state">
               <h2>No Maintenance Records Yet</h2>
               <p>
@@ -78,7 +81,9 @@
               </button>
             </div>
           </div>
-          <div id="maintenance-container" class="maintenance-container"></div>
+          <div id="maintenance-container" class="maintenance-container">
+            <div></div>
+          </div>
         </section>
       </div>
 
@@ -144,17 +149,19 @@
           </header>
 
           <div class="info-group">
-            <label for="service">Service:</label>
+            <label for="service" class="required-label">Service:</label>
             <input type="text" id="service" required />
           </div>
 
           <div class="info-group">
-            <label for="date">Date:</label>
+            <label for="date" class="required-label">Date:</label>
             <input type="date" id="date" required />
           </div>
 
           <div class="info-group">
-            <label for="maintenance-mileage">Mileage:</label>
+            <label for="maintenance-mileage" class="required-label"
+              >Mileage:</label
+            >
             <input type="number" id="maintenance-mileage" required />
           </div>
 
@@ -164,12 +171,16 @@
           </div>
 
           <div class="info-group">
-            <label for="next-service-date">Next Service Date:</label>
+            <label for="next-service-date" class="required-label"
+              >Next Service Date:</label
+            >
             <input type="date" id="next-service-date" required />
           </div>
 
           <div class="info-group">
-            <label for="next-service-mileage">Next Service Mileage:</label>
+            <label for="next-service-mileage" class="required-label"
+              >Next Service Mileage:</label
+            >
             <input type="number" id="next-service-mileage" required />
           </div>
 
@@ -184,7 +195,7 @@
               id="submit-maintenance-form-btn"
               class="primary-btn btn"
             >
-              Add Vehicle
+              Add Maintenance
             </button>
 
             <button
