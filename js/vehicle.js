@@ -179,15 +179,9 @@ function deleteVehicle() {
   switchView();
 }
 
-function validateVehicleForm(year, make, model, trim, mileage) {
-  if (
-    !year ||
-    !make.trim() ||
-    !model.trim() ||
-    !trim.trim() ||
-    mileage === ''
-  ) {
-    alert('Please fill out all vehicle fields.');
+function validateVehicleForm(year, make, model, mileage) {
+  if (!year || !make.trim() || !model.trim() || mileage === '') {
+    alert('Please fill out all required vehicle fields.');
     return false;
   }
 

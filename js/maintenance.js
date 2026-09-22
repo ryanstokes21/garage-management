@@ -1,5 +1,5 @@
 import { loadMaintenance, saveMaintenance, saveVehicles } from './storage.js';
-import { renderVehicles, vehicles, viewVehicleDetails } from './vehicle.js';
+import { renderVehicles, vehicles } from './vehicle.js';
 
 const maintenanceDialog = document.getElementById('maintenance-dialog');
 const maintenanceForm = document.getElementById('maintenance-form');
