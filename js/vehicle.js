@@ -133,7 +133,7 @@ function submitVehicleForm() {
   const trim = document.getElementById('trim').value;
   const mileage = document.getElementById('mileage').value;
 
-  if (!validateVehicleForm(year, make, model, trim, mileage)) {
+  if (!validateVehicleForm(year, make, model, mileage)) {
     return;
   }
 
