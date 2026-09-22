@@ -17,7 +17,7 @@ class Vehicle {
   }
 }
 
-const vehicles = loadVehicles();
+export const vehicles = loadVehicles();
 
 export function initVehicles() {
   renderVehicles();
@@ -43,7 +43,7 @@ export function initVehicles() {
     .addEventListener('click', deleteVehicle);
 }
 
-function renderVehicles() {
+export function renderVehicles() {
   const vehicleContainer = document.getElementById('vehicle-container');
   const vehicleTemplate = document.getElementById('vehicle-card-template');
   const emptyState = document.getElementById('vehicle-empty-state');

@@ -1,4 +1,5 @@
-import { loadMaintenance, saveMaintenance } from './storage.js';
+import { loadMaintenance, saveMaintenance, saveVehicles } from './storage.js';
+import { renderVehicles, vehicles } from './vehicle.js';
 
 const maintenanceDialog = document.getElementById('maintenance-dialog');
 const maintenanceForm = document.getElementById('maintenance-form');
@@ -132,9 +133,26 @@ function submitMaintenanceForm() {
 
   saveMaintenance(maintenanceRecord);
 
+  updateVehicleMileage(selectedVehicleId, mileage);
+
   maintenanceForm.reset();
   maintenanceDialog.close();
   renderMaintenance(selectedVehicleId);
 
   selectedVehicleId = null;
+}
+
+function updateVehicleMileage(vehicleId, maintenanceMileage) {
+  const vehicle = vehicles.find((vehicle) => vehicle.id === vehicleId);
+
+  if (!vehicle) return;
+
+  const newMileage = Number(maintenanceMileage);
+
+  if (newMileage > vehicle.mileage) {
+    vehicle.mileage = newMileage;
+
+    saveVehicles(vehicles);
+    renderVehicles();
+  }
 }
